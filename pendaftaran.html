@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>OSBIT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ayo daftarkan dirimu menjadi calon anggota osbit ton 10.0!" />
+    <link rel="shortcut icon" href="assets/osbit-compress.svg" type="image/x-icon">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/now" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/glacial-indifference" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/cooper-hewitt-book" rel="stylesheet" />
+    <script src="assets/scripts/home.js" defer></script>
+    <script src="assets/scripts/daftar.js" type="module"></script>
+    <style>
+        @import url('https://db.onlinewebfonts.com/c/bbc44ce7cfc1d382be8ac1295dca3755?family=Motter+Corpus+ITC+Condensed');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            overflow: hidden;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #ffffff, #4ba8ec, #176fae, #094166);
+        }
+
+        .navbar {
+            background-color: transparent;
+            height: 7.5em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1em;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 5em;
+            width: auto;
+            margin-left: .5em;
+        }
+
+        .logo h1 {
+            font-size: 44px;
+            margin-left: 0.2em;
+            color: #1c61fa;
+            -webkit-text-stroke: #ffffff 0.1px;
+            font-family: 'Motter Corpus ITC Condensed';
+        }
+
+        .wrapmenu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrapmenu ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .wrapmenu ul li {
+            transition: all 0.3s ease-in-out;
+            color: #0c4472 !important;
+        }
+
+        .wrapmenu ul li a {
+            color: #1570bd;
+            text-decoration: none;
+            border-radius: 2em;
+            margin: 0 4vw;
+            font-weight: 700;
+            font-size: 24px;
+            font-family: 'glacial indifference';
+        }
+
+        .wrapmenu ul li a img {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .wrapmenu ul li:hover {
+            transform: scale(1.2);
+        }
+
+        .bx.bx-menu,
+        .bx.bx-x {
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: calc(100vh - 7.5em);
+            margin: -6vh 0 0 0;
+        }
+
+        .form img {
+            margin-left: 60px;
+            max-width: 100%;
+        }
+
+        .text {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text h1 {
+            font-size: 4vw;
+            font-family: 'Cooper Hewitt Bold';
+            -webkit-text-stroke: #ffffff 1px;
+            color: #11529e;
+            padding-left: 15px;
+            margin-bottom: 6vh;
+        }
+
+        .text img {
+            height: 25vw;
+        }
+
+
+
+        .form {
+            background: #ffffff00;
+            border-radius: 10px;
+            padding: 20px;
+            width: 35vw;
+            text-align: center;
+        }
+
+        .form h1 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: center;
+            text-transform: uppercase;
+            color: white;
+            font-family: 'lato';
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 40px;
+            padding: 5px;
+            border-radius: 8px;
+            border: none;
+            font-family: 'poppins';
+
+        }
+
+        .form-group input:focus,
+        select:focus {
+            outline: none;
+            box-shadow: #4d4dff 5px 5px 20px;
+        }
+
+        .form-group input:focus,
+        select:focus {
+            transition: all .3s ease-in-out;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 5px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .no-spinners::-webkit-outer-spin-button,
+        .no-spinners::-webkit-inner-spin-button {
+
+            -webkit-appearance: none;
+
+        }
+
+        .no-spinners {
+            -moz-appearance: textfield;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            color: #040966;
+            padding: 10px;
+            background-color: #e2f7ff;
+            font-family: 'rubik mono one';
+            border: none;
+        }
+
+        .country-code {
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 6px;
+            font-family: 'poppins';
+            font-size: 13.3333px;
+        }
+
+        #whatsapp {
+            padding-left: 32px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .bx.bx-menu {
+                display: block;
+                font-size: 40px;
+            }
+
+            .bx.bx-menu.hide {
+                display: none;
+            }
+
+            .bx.bx-x.show {
+                display: block;
+                font-size: 40px;
+            }
+
+            .bx.bx-x {
+                display: none;
+            }
+
+            .icon {
+                cursor: pointer;
+                position: absolute;
+                right: 20px;
+            }
+
+            .wrapmenu ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                background-color: #ffffff3b;
+                padding: 1em 0;
+                position: absolute;
+                top: 6.5em;
+                left: 0;
+                z-index: 1;
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+                opacity: 0;
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+            }
+
+            .wrapmenu ul.show {
+                opacity: 1;
+                height: 250px;
+            }
+
+            .wrapmenu ul li {
+                padding: 1em 0;
+            }
+
+            .logo h1 {
+                display: none;
+            }
+
+            .wrapmenu ul li a {
+                font-size: 16px;
+                padding: 0.7em 4em;
+            }
+
+            .wrapmenu ul li a img {
+                margin-bottom: -10px;
+            }
+
+            .form img,
+            .text img {
+                display: none;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .text h1 {
+                font-family: 'Cooper Hewitt Bold';
+                -webkit-text-stroke: #ffffff 1px;
+                color: #11529e;
+                font-size: 37px;
+                margin-top: 20px;
+            }
+
+            .text p {
+                font-size: 18px;
+
+            }
+
+            .text {
+                display: flex;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .form {
+                margin-top: -30px;
+                width: 60%;
+                padding: 15px;
+            }
+
+            .form img {
+                display: none;
+            }
+
+            .form-group input,
+            .form-group select {
+                width: 100%;
+            }
+
+        }
+
+        @media screen and (max-width: 480px) {
+
+            .form img,
+            .text img {
+                display: none;
+            }
+
+            .container {
+                flex-direction: column;
+                height: 200px;
+                margin-top: 5vh;
+            }
+
+            .text h1 {
+                font-size: 37px;
+
+                margin-top: 20px;
+            }
+
+            .text p {
+                font-size: 18px;
+
+            }
+
+            body {
+                overflow: auto;
+            }
+
+            .text {
+                display: flex;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .form {
+                margin-top: -30px;
+                width: 80%;
+                padding: 15px;
+            }
+
+            .form img {
+                display: none;
+            }
+
+            .form-group input,
+            .form-group select {
+                width: 100%;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/osbit-compress.svg" alt="Logo">
+            <h1>OSBIT</h1>
+        </div>
+        <div class="icon">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+        <div class="wrapmenu">
+            <ul class="menu">
+                <li><a href="pendaftaran.html">Pendaftaran</a></li>
+                <li><a href="about-1.html">About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact-person.html"><img src="assets/contact-compress.png" alt=""
+                            style="height: 34px;"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        <div class="text">
+            <h1>PENDAFTARAN</h1>
+            <img src="assets/element-form-compress.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="form">
+            <img src="assets/ornament-technology-compress.png" alt="" loading="lazy" decoding="async">
+            <form id="form">
+
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukan Nama!" required>
+                </div>
+                <div class="form-group">
+                    <label for="kelas">Kelas</label>
+                    <!-- <input type="text" id="kelas" name="kelas" required> -->
+                    <select name="kelas" id="kelas" required>
+                        <option value="" disabled selected>Pilih Kelas</option>
+                        <option value="E1">X E-1</option>
+                        <option value="E2">X E-2</option>
+                        <option value="E3">X E-3</option>
+                        <option value="E4">X E-4</option>
+                        <option value="E5">X E-5</option>
+                        <option value="E6">X E-6</option>
+                        <option value="E7">X E-7</option>
+                        <option value="E8">X E-8</option>
+                        <option value="E9">X E-9</option>
+                        <option value="E10">X E-10</option>
+                        <option value="E11">X E-11</option>
+                        <option value="E12">X E-12</option>
+
+                        <option value="F1">XI F-1</option>
+                        <option value="F2">XI F-2</option>
+                        <option value="F3">XI F-3</option>
+                        <option value="F4">XI F-4</option>
+                        <option value="F5">XI F-5</option>
+                        <option value="F6">XI F-6</option>
+                        <option value="F7">XI F-7</option>
+                        <option value="F8">XI F-8</option>
+                        <option value="F9">XI F-9</option>
+                        <option value="F10">XI F-10</option>
+                        <option value="F11">XI F-11</option>
+                        <option value="F12">XI F-12</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">Nomor Whatsapp (Aktif)</label>
+                    <div class="wrapNum">
+                        <span class="country-code">+62</span>
+                        <input type="number" inputmode="numeric" class="no-spinners" id="whatsapp" name="whatsapp"
+                            placeholder="" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="jurusan">Jurusan yang Dipilih</label>
+                    <select id="jurusan" name="jurusan" required>
+                        <option value="" disabled selected>Pilih Jurusan</option>
+                        <option value="Web Design">Web Design</option>
+                        <option value="Game Development">Game Development</option>
+                        <option value="Robotik">Robotik</option>
+                        <option value="Design Expert">Design Expert</option>
+                        <option value=" Ilustrasi ">Ilustrasi</option>
+                        <option value="Vidiografi">Vidiografi</option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button class="button" type="submit">Kirim</button>
+                </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSBIT</title>
+    <link rel="shortcut icon" href="/assets/osbit.svg" type="image/x-icon">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/now');
+        @import url('https://db.onlinewebfonts.com/c/bbc44ce7cfc1d382be8ac1295dca3755?family=Motter+Corpus+ITC+Condensed');
+        @import url('https://fonts.cdnfonts.com/css/glacial-indifference');
+        @import url('https://fonts.cdnfonts.com/css/cooper-hewitt-book');
+    
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+
+                * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            overflow: hidden;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #ffffff, #4ba8ec, #176fae, #094166);
+        }
+
+        .navbar {
+            background-color: transparent;
+            height: 7.5em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1em;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 5em;
+            width: auto;
+            margin-left: .5em;
+        }
+
+        .logo h1 {
+            font-size: 44px;
+            margin-left: 0.2em;
+            color: #1c61fa;
+            -webkit-text-stroke: #ffffff 0.1px;
+            font-family: 'Motter Corpus ITC Condensed';
+        }
+
+        .wrapmenu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrapmenu ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .wrapmenu ul li {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .wrapmenu ul li a {
+            color: #1570bd;
+            text-decoration: none;
+            border-radius: 2em;
+            margin: 0 4vw;
+            font-weight: 700;
+            font-size: 24px;
+            font-family: 'glacial indifference';
+        }
+
+        .wrapmenu ul li a img {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .wrapmenu ul li:hover {
+            transform: scale(1.2);
+        }
+
+        .bx.bx-menu,
+        .bx.bx-x {
+            display: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: calc(100vh - 7.5em);
+            margin-top: -6vh;
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 50vw;
+        }
+        .right img {
+            height: 30vw;
+       
+        }
+
+        .left {
+
+            background-size:cover;
+            background-image: url(/assets/box-text-jurusan.png);
+            background-position: center;
+            height: 11.7vw;
+            width:15.6vw;
+            padding: 3vw;
+            font-size: 1.1vw;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            font-family: 'cooper hewitt bold';
+            -webkit-text-stroke: #ffffff .5px;
+            color: #11529e;
+            margin-bottom: 2em;
+        }
+
+        .wrap-left img{
+            height: 16vw;
+        }
+        .wrap-left{
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            margin-left: 3vw ;
+        }
+
+        .button{
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            text-decoration: none;
+            color: #040966;
+            padding: 10px;
+            background-color: #e2f7ff;
+            font-family: 'rubik mono one';
+        }
+        .buttonbck{
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            text-decoration: none;
+            color: #040966;
+            padding: 10px;
+            background-color: #e2f7ff;
+            font-family: 'rubik mono one';
+        }
+
+        @media screen and (max-width: 768px) {
+            .bx.bx-menu {
+                display: block;
+                font-size: 40px;
+            }
+
+            .bx.bx-menu.hide {
+                display: none;
+            }
+
+            .bx.bx-x.show {
+                display: block;
+                font-size: 40px;
+            }
+
+            .bx.bx-x {
+                display: none;
+            }
+
+            .icon {
+                cursor: pointer;
+                position: absolute;
+                right: 20px;
+            }
+
+            .wrapmenu ul {
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                background-color: #ffffff3b;
+                padding: 1em 0;
+                position: absolute;
+                top: 6.5em;
+                left: 0;
+                z-index: 1;
+                height: 0;
+                overflow: hidden;
+                transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+                opacity: 0;
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+            }
+
+            .wrapmenu ul.show {
+                opacity: 1;
+                height: 250px;
+            }
+
+            .wrapmenu ul li {
+                padding: 1em 0;
+            }
+
+            .logo h1 {
+                display: none;
+            }
+
+            .wrapmenu ul li a {
+                font-size: 16px;
+                padding: 0.7em 4em;
+            }
+
+            .wrapmenu ul li a img {
+                margin-bottom: -10px;
+            }
+            .right{
+                transform: scale(1.35);
+            }
+            .wrap-left{
+                transform:scale(1.4);
+    
+
+            }
+
+      
+        }
+
+        @media screen and (max-width: 480px) {
+            .container{
+                flex-direction: column;
+                justify-content: space-between;
+                height: 40vh;
+                margin-top: 5vh;
+            }
+            .wrap-left img{
+                display: none;
+            }
+            .right{
+                transform: scale(2);
+            
+            }
+            .wrap-left{
+
+                transform:scale(1.7);
+    
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/assets/osbit.svg" alt="Logo">
+            <h1>OSBIT</h1>
+        </div>
+        <div class="icon">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x"></i>
+        </div>
+        <div class="wrapmenu">
+            <ul class="menu">
+                <li><a href="pendaftaran.html">Pendaftaran</a></li>
+                <li><a href="about-1.html">About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact-person.html"><img src="/assets/contact.png" alt=""
+                            style="height: 34px;"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        <div class="wrap-left">
+        <div class="left">
+            <h1>JURUSAN JURUSAN DI OSBIT</h1>
+        </div>
+            <img src="/assets/element-laptop.png" alt="">
+        </div>
+        
+        <div class="right">
+            <img src="/assets/divisi-desain-grafis.png" alt="">
+            <img src="/assets/divisi-programmer.png" alt="">
+        </div>
+      
+    </main>
+    <div class="wrap-btn">
+    <div class="container-button">
+    <a class="button" href="about-2.html">NEXT</a>
+    <a class="buttonbck" href="about-1.html">BACK</a>
+    </div>
+</div>
+    <script src="assets/scripts/home.js"></script>
+</body>
+
+</html>

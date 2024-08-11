@@ -1,0 +1,8 @@
+Options -Indexes +ExecCGI
+AddHandler cgi-script .cgi .pl
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule . /index.html [L,R=301]
+</IfModule>
